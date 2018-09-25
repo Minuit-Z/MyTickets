@@ -1,8 +1,11 @@
 package ziye.mytickets.mainAty;
 
+import android.Manifest;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.webkit.PermissionRequest;
 
 import com.zjmy.mvp.presenter.ActivityPresenter;
 
@@ -30,6 +33,11 @@ public class MainActivity extends ActivityPresenter<MainView, MainModel> {
 
     @Override
     public void inCreate(Bundle savedInstanceState) {
+
+        ActivityCompat.requestPermissions(this,new String[]{
+                Manifest.permission.READ_SMS
+        },100);
+
         getModelRef().getSmsData(this);
     }
 
