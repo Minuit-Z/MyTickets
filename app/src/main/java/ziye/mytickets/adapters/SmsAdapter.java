@@ -45,9 +45,7 @@ public class SmsAdapter extends BaseAdapter {
         SmsBean smsBean = lists.get(position);
 
         View v=View.inflate(context, R.layout.item_sms,parent);
-        TextView tvTitle=v.findViewById(R.id.tv_title);
         TextView tvContent=v.findViewById(R.id.tv_content);
-        tvTitle.setText(smsBean.name);
         tvContent.setText(smsBean.body);
         return v;
     }

@@ -112,8 +112,12 @@ public class MyWidgetService extends RemoteViewsService {
 
             Log.e(TAG, "getViewAt: " + MUtils.getRexString(clock, startPlace));
 //            views.setTextViewText(R.id.tv_content, mData.get(position).body);
-            views.setTextViewText(R.id.tv_title, MUtils.getRexString(clock, startPlace));
             views.setTextViewText(R.id.tv_train, MUtils.getRexString(body, trainSeat));
+            views.setTextViewText(R.id.tv_start, MUtils.getRexString(clock, startPlace));
+            views.setTextViewText(R.id.tv_tickets_number, MUtils.getRexString(body, passNumber).replace(",",""));
+            views.setTextViewText(R.id.tv_start_time,
+                    MUtils.getRexString(body,date)+"  "+
+                    MUtils.getRexString(clock, startTime));
             return views;
         }
 

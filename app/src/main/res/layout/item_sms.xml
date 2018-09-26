@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingBottom="5dp"
     android:paddingLeft="10dp"
@@ -18,14 +18,52 @@
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_tickets_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/tv_train"
+        android:gravity="center"
+        android:text="K615"
+        android:textColor="@color/colorGray"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_start"
+        android:gravity="center_vertical"
         android:layout_below="@id/tv_train"
         android:layout_marginTop="3dp"
-        android:text="AASD"
-        android:textColor="@color/colorDark"
-        android:textSize="17sp" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AASD"
+            android:textColor="@color/colorDark"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tv_start_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:gravity="center"
+            android:text="E123"
+            android:textColor="@color/colorGrey"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_end"
+        android:layout_below="@id/ll_start"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
 
 
     <ImageView
