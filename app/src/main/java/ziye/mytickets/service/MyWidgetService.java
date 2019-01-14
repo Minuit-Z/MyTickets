@@ -62,6 +62,8 @@ public class MyWidgetService extends RemoteViewsService {
                 if (!smsBean.address.contains("12306")) continue;
                 smsBean.date = cursor.getString(1);
                 smsBean.body = cursor.getString(2);
+
+                if (smsBean.body.contains("退票")) continue;
                 smsBean.type = cursor.getInt(cursor.getColumnIndex("type"));
                 smsBean.name = cursor.getString(cursor.getColumnIndex("person"));
                 smsBean.thread_id = cursor.getInt(cursor.getColumnIndex("thread_id"));
@@ -99,6 +101,7 @@ public class MyWidgetService extends RemoteViewsService {
             }
             RemoteViews views = new RemoteViews(mContext.getPackageName(), R.layout.item_sms);
             String body = mData.get(position).body;
+            if (body.contains("退票")) return null;
             Pattern passNumber = Pattern.compile("E.*?,"); //订单号
             Pattern username = Pattern.compile(",.*?您");//订单人
             Pattern date = Pattern.compile("(\\d{1,2})月(\\d{1,2})日");//乘车日期
@@ -114,10 +117,10 @@ public class MyWidgetService extends RemoteViewsService {
 //            views.setTextViewText(R.id.tv_content, mData.get(position).body);
             views.setTextViewText(R.id.tv_train, MUtils.getRexString(body, trainSeat));
             views.setTextViewText(R.id.tv_start, MUtils.getRexString(clock, startPlace));
-            views.setTextViewText(R.id.tv_tickets_number, MUtils.getRexString(body, passNumber).replace(",",""));
+            views.setTextViewText(R.id.tv_tickets_number, MUtils.getRexString(body, passNumber).replace(",", ""));
             views.setTextViewText(R.id.tv_start_time,
-                    MUtils.getRexString(body,date)+"  "+
-                    MUtils.getRexString(clock, startTime));
+                    MUtils.getRexString(body, date) + "  " +
+                            MUtils.getRexString(clock, startTime));
             return views;
         }
 
