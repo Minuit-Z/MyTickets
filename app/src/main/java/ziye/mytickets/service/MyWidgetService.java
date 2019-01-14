@@ -105,7 +105,7 @@ public class MyWidgetService extends RemoteViewsService {
             Pattern trainSeat = Pattern.compile("([a-zA-Z0-9]*)次(\\d*)车(\\d*)号");//座位号
 
             String[] split = body.split(",");
-            String clock = split[2];
+            String clock = split[1];
 
             Pattern startPlace = Pattern.compile(".*站");//xx站发车
             Pattern startTime = Pattern.compile("[:\\d{1,2}]*开");//xx站发车时间
